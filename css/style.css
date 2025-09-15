@@ -34,10 +34,7 @@ body::before {
   height: 100vh;
   position: fixed;
   background-color: #0a0a0a;
-  background-image: url("../img/section-bg.png");
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url("../img/section-bg.png") no-repeat top left / cover;
 }
 
 @media (max-width: 991.9px) {
@@ -154,11 +151,11 @@ aside {
 }
 
 .header-brand {
+  gap: 28px;
   height: 100px;
   display: flex;
   align-items: center;
   margin-bottom: 14px;
-  justify-content: space-between;
 }
 
 .logo {
@@ -167,11 +164,19 @@ aside {
   color: #ffd33f;
 }
 
+.header-brand .nav-link-wrap {
+  margin-left: auto;
+}
+
 .nav-link-wrap {
   gap: 28px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+}
+
+.mobile-menu .game-label {
+  display: none;
 }
 
 .nav-link {
@@ -199,6 +204,13 @@ aside {
   margin-top: 1px;
 }
 
+/* nav toggler */
+.nav-toggler {
+  display: none;
+  font-size: 28px;
+  color: #ffe0e8;
+}
+
 @media (max-width: 991.9px) {
   .nav-link,
   .logout-btn {
@@ -206,7 +218,67 @@ aside {
   }
 }
 
-@media (max-width: 374.9px) {
+@media (max-width: 574.9px) {
+  #header {
+    top: 0;
+    z-index: 1200;
+    position: sticky;
+    background-color: #0b022c;
+  }
+
+  .nav-toggler {
+    display: flex;
+    margin-top: 1px;
+    transition: color 200ms ease, transform 200ms ease;
+  }
+
+  .nav-toggler:active {
+    transform: scale(0.8);
+  }
+
+  .nav-toggler .bx-x {
+    color: #ff5a85;
+  }
+
+  /* TODO: */
+  .mobile-menu {
+    top: 94px;
+    right: 14px;
+    position: absolute;
+    padding: 32px 40px;
+    border-radius: 10px;
+    background: #420c64;
+    flex-direction: column;
+    align-items: flex-start;
+
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+    transition: opacity 300ms ease, transform 200ms ease;
+    display: none;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .mobile-menu .game-label {
+    display: flex;
+    color: #e6b2fb;
+  }
+
+  .game-label p {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 424.9px) {
+  .header-brand {
+    gap: 14px;
+  }
+
   .nav-link-wrap {
     gap: 22px;
   }
