@@ -226,6 +226,10 @@ aside {
     background-color: #0b022c;
   }
 
+  .nav-link-wrap {
+    gap: 22px;
+  }
+
   .nav-toggler {
     display: flex;
     margin-top: 1px;
@@ -277,10 +281,6 @@ aside {
 @media (max-width: 424.9px) {
   .header-brand {
     gap: 14px;
-  }
-
-  .nav-link-wrap {
-    gap: 22px;
   }
 
   .logout-btn .label {
